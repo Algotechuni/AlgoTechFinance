@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solutions Co. - Transform Your Business with Custom AI Agents</title>
+    <meta name="description" content="We build AI automation that saves 20+ hours per week and delivers measurable ROI in 30 days. Get your free AI audit today.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #1a202c;
+            --primary-blue: #3182ce;
+            --purple-gradient-start: #805ad5;
+            --purple-gradient-end: #6b46c1;
+            --accent-green: #48bb78;
+            --bg-dark: #0f0f0f;
+            --text-light: #e2e8f0;
+            --text-muted: #a0aec0;
+            --border-color: #2d3748;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-blue), var(--purple-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .cta-button {
+            background: var(--accent-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(72, 187, 120, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: radial-gradient(ellipse at top, rgba(49, 130, 206, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .subheadline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--purple-gradient-start) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(26, 32, 44, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--purple-gradient-end));
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--purple-gradient-start), var(--purple-gradient-end));
+            border-radius: 50%;
+            line-height: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Case Studies */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .case-study {
+            background: rgba(26, 32, 44, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .metric {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-green);
+            margin: 1rem 0;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: rgba(26, 32, 44, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--primary-blue);
+        }
+
+        /* ROI Calculator */
+        .calculator {
+            background: rgba(26, 32, 44, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, rgba(72, 187, 120, 0.1), rgba(72, 187, 120, 0.05));
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .services-grid, .case-studies, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .testimonial {
+            background: rgba(26, 32, 44, 0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .testimonial-author {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--purple-gradient-start);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">AI Solutions Co.</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Your Free AI Audit</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Transform Your Business with Custom AI Agents That Actually Work</h1>
+                <p class="subheadline">We build AI automation that saves 20+ hours per week and delivers measurable ROI in 30 days</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="cta-button">Get Your Free AI Audit</a>
+                    <a href="#case-studies" class="secondary-button">See Success Stories</a>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Businesses Transformed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>92%</h3>
+                        <p>Client Satisfaction Rate</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+ hrs</h3>
+                        <p>Saved Weekly on Average</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>3.5x</h3>
+                        <p>Average ROI in 90 Days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>AI Solutions That Drive Real Business Results</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon"></div>
+                    <h3>AI Customer Service Agents</h3>
+                    <p>Deploy intelligent chatbots that handle 80% of customer inquiries 24/7, reducing response time by 95% while maintaining human-like interaction quality.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Multi-channel support integration</li>
+                        <li>Natural language understanding</li>
+                        <li>Seamless human handoff</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"></div>
+                    <h3>Marketing Automation Systems</h3>
+                    <p>AI-powered lead generation and nurturing that increases conversion rates by up to 40% through personalized customer journeys and predictive analytics.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Automated email campaigns</li>
+                        <li>Lead scoring & qualification</li>
+                        <li>Content personalization</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"></div>
+                    <h3>Business Process Automation</h3>
+                    <p>Eliminate repetitive tasks with AI agents that handle data entry, scheduling, and reporting, freeing your team to focus on strategic initiatives.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>Document processing</li>
+                        <li>Workflow automation</li>
+                        <li>Intelligent data extraction</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"></div>
+                    <h3>Custom AI Integration</h3>
+                    <p>Seamlessly integrate AI capabilities into your existing systems, enhancing functionality without disrupting operations.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>API development</li>
+                        <li>Legacy system enhancement</li>
+                        <li>Cross-platform integration</li>
+                    </ul>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"></div>
+                    <h3>AI Strategy & Implementation</h3>
+                    <p>Expert guidance to identify AI opportunities, develop implementation roadmaps, and ensure successful adoption across your organization.</p>
+                    <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                        <li>AI readiness assessment</li>
+                        <li>Use case prioritization</li>
+                        <li>Change management support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies">
+        <div class="container">
+            <h2>Proven Results Across Industries</h2>
+            <div class="case-studies">
+                <div class="case-study fade-in">
+                    <span class="badge">E-commerce</span>
+                    <h3>TechGear Pro</h3>
+                    <p>Online electronics retailer struggling with customer support volume and cart abandonment.</p>
+                    <div class="metric">85% ↓</div>
+                    <p><strong>Reduction in support tickets</strong></p>
+                    <p>Implemented AI customer service agent handling product inquiries, order tracking, and technical support. Integrated personalized product recommendations.</p>
+                    <div class="testimonial">
+                        <p>"The AI agent handles complex technical questions better than most of our human agents. We've been able to reallocate 5 support staff to sales."</p>
+                        <p class="testimonial-author">- Sarah Chen, CEO of TechGear Pro</p>
+                    </div>
+                </div>
+                <div class="case-study fade-in">
+                    <span class="badge">SaaS</span>
+                    <h3>CloudSync Solutions</h3>
+                    <p>B2B software company with inefficient lead qualification and onboarding processes.</p>
+                    <div class="metric">3.2x ↑</div>
+                    <p><strong>Increase in qualified leads</strong></p>
+                    <p>Built AI-powered lead scoring system and automated onboarding assistant. Reduced time-to-value for new customers by 60%.</p>
+                    <div class="testimonial">
+                        <p>"Our sales team now focuses only on high-intent prospects. The AI qualification saved us 30 hours per week."</p>
+                        <p class="testimonial-author">- Michael Roberts, VP Sales at CloudSync</p>
+                    </div>
+                </div>
+                <div class="case-study fade-in">
+                    <span class="badge">Professional Services</span>
+                    <h3>LegalEase Partners</h3>
+                    <p>Law firm drowning in document review and client intake paperwork.</p>
+                    <div class="metric">22 hrs</div>
+                    <p><strong>Saved per week per attorney</strong></p>
+                    <p>Deployed AI document analysis and client intake automation. Reduced contract review time by 75% while improving accuracy.</p>
+                    <div class="testimonial">
+                        <p>"Our attorneys can now handle twice the caseload. The ROI was evident within the first month."</p>
+                        <p class="testimonial-author">- Amanda Foster, Managing Partner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <h2>Our Proven Implementation Process</h2>
+            <div class="process-steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>AI Readiness Audit</h3>
+                    <p>Free consultation to assess your current processes and identify high-impact AI opportunities</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Custom Solution Design</h3>
+                    <p>Tailored AI architecture designed specifically for your business needs and existing systems</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Build & Test</h3>
+                    <p>Rapid prototyping and development with continuous testing - see results in 1-2 weeks</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Deploy & Train</h3>
+                    <p>Seamless integration with comprehensive team training to ensure smooth adoption</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Monitor & Optimize</h3>
+                    <p>Ongoing performance monitoring and continuous improvement for maximum ROI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>We Build AI Solutions, Not Just Talk About Them</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">We're engineers who build AI solutions, not consultants who create PowerPoints. Our team has deployed over 200 AI agents that generate real business value every single day.</p>
+                
+                <div class="stats-grid" style="margin: 3rem 0;">
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Years Combined AI Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>AI Agents Deployed</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>$2.3M</h3>
+                        <p>Total Client Savings</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>98%</h3>
+                        <p>Project Success Rate</p>
+                    </div>
+                </div>
+
+                <h3 style="margin: 3rem 0 1.5rem;">Our Methodology</h3>
+                <p style="font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 2rem;">
+                    Audit → Build → Deploy → Optimize
+                </p>
+                <p>We don't believe in lengthy strategy documents. We believe in rapid prototyping, measurable results, and continuous improvement. Every solution we build is designed to deliver ROI within 30 days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2>Transparent Pricing, Guaranteed ROI</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in">
+                    <h3>AI Audit</h3>
+                    <div class="price">Free</div>
+                    <p>Comprehensive assessment of your AI opportunities</p>
+                    <ul style="text-align: left; padding: 1.5rem;">
+                        <li>Process analysis</li>
+                        <li>ROI projections</li>
+                        <li>Implementation roadmap</li>
+                        <li>No obligation</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 2rem;">Get Started</a>
+                </div>
+                <div class="pricing-card featured fade-in">
+                    <span class="badge">Most Popular</span>
+                    <h3>AI Agent Development</h3>
+                    <div class="price">From $2,997</div>
+                    <p>Custom AI agent built for your specific needs</p>
+                    <ul style="text-align: left; padding: 1.5rem;">
+                        <li>Full custom development</li>
+                        <li>Integration with your systems</li>
+                        <li>Team training included</li>
+                        <li>30-day performance guarantee</li>
+                        <li>3 months of updates</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 2rem;">Get Your Free Audit</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>AI Management</h3>
+                    <div class="price">$497-1,497/mo</div>
+                    <p>Ongoing optimization and support</p>
+                    <ul style="text-align: left; padding: 1.5rem;">
+                        <li>Performance monitoring</li>
+                        <li>Continuous improvements</li>
+                        <li>Priority support</li>
+                        <li>Monthly reporting</li>
+                        <li>Scaling assistance</li>
+                    </ul>
+                    <a href="#contact" class="secondary-button" style="margin-top: 2rem;">Learn More</a>
+                </div>
+                <div class="pricing-card fade-in">
+                    <h3>Enterprise Solutions</h3>
+                    <div class="price">Custom</div>
+                    <p>Full-scale AI transformation</p>
+                    <ul style="text-align: left; padding: 1.5rem;">
+                        <li>Multiple AI agents</li>
+                        <li>Enterprise integration</li>
+                        <li>Dedicated support team</li>
+                        <li>Custom SLAs</li>
+                        <li>Strategic partnership</li>
+                    </ul>
+                    <a href="#contact" class="secondary-button" style="margin-top: 2rem;">Contact Sales</a>
+                </div>
+            </div>
+
+            <!-- ROI Calculator -->
+            <div class="calculator">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Calculate Your AI ROI</h3>
+                <div class="input-group">
+                    <label>Hours spent on repetitive tasks per week:</label>
+                    <input type="number" id="hours" placeholder="e.g., 40" value="40">
+                </div>
+                <div class="input-group">
+                    <label>Average hourly cost of employee:</label>
+                    <input type="number" id="hourly-cost" placeholder="e.g., 50" value="50">
+                </div>
+                <div class="input-group">
+                    <label>Expected automation percentage:</label>
+                    <input type="number" id="automation" placeholder="e.g., 70" value="70">
+                </div>
+                <button class="cta-button" onclick="calculateROI()" style="width: 100%;">Calculate Savings</button>
+                <div class="result-box" id="result" style="display: none;">
+                    <h3>Estimated Annual Savings</h3>
+                    <div class="metric" id="savings">$0</div>
+                    <p>Based on automating <span id="automated-hours">0</span> hours per week</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources">
+        <div class="container">
+            <h2>Free Resources to Get Started</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <h3>The Ultimate Guide to AI Implementation</h3>
+                    <p>45-page comprehensive guide covering everything from selecting use cases to measuring ROI</p>
+                    <a href="#contact" class="secondary-button" style="margin-top: 1rem;">Download Free Guide</a>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>AI Business Impact Calculator</h3>
+                    <p>Advanced calculator to project savings, efficiency gains, and ROI across multiple departments</p>
+                    <a href="#pricing" class="secondary-button" style="margin-top: 1rem;">Try Calculator</a>
+                </div>
+                <div class="service-card fade-in">
+                    <h3>Weekly AI Insights Newsletter</h3>
+                    <p>Stay ahead with practical AI tips, case studies, and implementation strategies</p>
+                    <a href="#contact" class="secondary-button" style="margin-top: 1rem;">Subscribe Free</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Ready to See What AI Can Do for Your Business?</h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <form class="contact-form">
+                    <div class="input-group">
+                        <label>Your Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Company Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel">
+                    </div>
+                    <div class="input-group">
+                        <label>What's your biggest business challenge right now?</label>
+                        <textarea style="width: 100%; padding: 0.75rem; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-light); min-height: 100px;"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Get Your Free AI Audit</button>
+                </form>
+                <p style="text-align: center; margin-top: 2rem; color: var(--text-muted);">
+                    Or call us directly at <a href="tel:1-555-AI-BUILD" style="color: var(--primary-blue);">1-555-AI-BUILD</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 2rem;">AI Solutions Co.</div>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Building AI that works, delivering results that matter.</p>
+            <p style="color: var(--text-muted);">© 2024 AI Solutions Co. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        // ROI Calculator
+        function calculateROI() {
+            const hours = parseFloat(document.getElementById('hours').value) || 0;
+            const hourlyCost = parseFloat(document.getElementById('hourly-cost').value) || 0;
+            const automation = parseFloat(document.getElementById('automation').value) || 0;
+            
+            const automatedHours = hours * (automation / 100);
+            const weeklySavings = automatedHours * hourlyCost;
+            const annualSavings = weeklySavings * 52;
+            
+            document.getElementById('savings').textContent = ' + annualSavings.toLocaleString();
+            document.getElementById('automated-hours').textContent = automatedHours.toFixed(1);
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.style.animationFillMode = 'forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We\'ll contact you within 24 hours to schedule your free AI audit.');
+            this.reset();
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Dynamic navigation background
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 15, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 15, 0.95)';
+            }
+        });
+
+        // Add hover effects to service cards
+        document.querySelectorAll('.service-card, .case-study, .pricing-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Mobile menu toggle (would need to add hamburger menu for production)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add typewriter effect to hero headline
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Optional: Activate typewriter effect on page load
+        // const heroHeadline = document.querySelector('h1');
+        // if (heroHeadline) {
+        //     const originalText = heroHeadline.textContent;
+        //     typeWriter(heroHeadline, originalText, 30);
+        // }
+    </script>
+</body>
+</html>
